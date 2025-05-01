@@ -65,4 +65,24 @@ public void setAdopted(boolean adopted) {
 	this.adopted = adopted; 
 }
 
+public Pet() {
+	this.adopted = false; 
+}
+
+public boolean adopt() {
+	if(adopted != true) {
+		this.adopted = true;
+		return true;
+	}
+	return false; 
+}
+
+public int compareTo(Pet other) {
+	return this.name.compareTo(other.name);
+}
+
+public String toString() {
+	return name + ":" + type + "(" + species + ")" + age + "years old, " + (adopted? "Adoption status:" : "Available");
+}
+
 }
