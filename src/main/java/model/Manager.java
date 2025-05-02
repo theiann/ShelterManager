@@ -9,7 +9,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.Reader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class Manager {
 
@@ -58,5 +61,23 @@ public List<Pet> adaptExoticAnimals(List<ExoticAnimal> exoticAnimals){
 	return adaptedPets; 
 }
 
+public void saveOntoFile(List <Pet> pets ) throws IOException{
+	String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+	String saveName = "src/main/resources/"+ time+ "pets.json";
+	List<PetJson> petJsonList =new ArrayList<>();
+	for(Pet pet : pets) {
+		PetJson petJson = new PetJson();
+		 petJson.id = pet.getID();
+         petJson.name = pet.getName();
+         petJson.type = pet.getType();
+         petJson.species = pet.getSpecies();
+         petJson.age = pet.getAge();
+         petJson.adopted = pet.isAdopted();
+         petJsonList.add(petJson);
+	} 
+	try(FileWriter writer= new FileWriter(saveName)){
+		gson.toJson(petJsonList, writer); 
+	}
+}
 
 }
