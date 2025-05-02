@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Shelter<T extends Pet> { 
@@ -25,6 +27,42 @@ public T removePetByID(int id) {
 		}
 	}
 	return null; 
+}
+
+public T findPetById(int id) {
+	for (T pet : pets) {
+		if(pet.getID()==id) {
+			return pet;
+		}
+	}
+	return null;
+}
+
+public boolean adoptPet(int id) {
+	T pet = findPetById(id); 
+	if(pet != null) {
+		return pet.adopt();
+	}
+	return false; 
+}
+
+
+public List<T> getAvailablePets(){
+	List <T> availablePets = new ArrayList<>(); 
+	for(T pet: pets ) {
+		if(!pet.isAdopted()) {
+			availablePets.add(pet);
+		}
+	}
+	return availablePets; 
+}
+
+public void sortPets() {
+	Collections.sort(pets);
+}
+
+public void sortPets(Comparator<Pet> comparator) {
+	pets.sort(comparator);
 }
 
 }
