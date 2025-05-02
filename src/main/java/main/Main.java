@@ -8,6 +8,8 @@ import model.ExoticAnimal;
 import model.Manager;
 import model.Pet;
 import model.Shelter;
+import model.AgeComparator;
+import model.SpeciesComparator;
 
 public class Main {
 
@@ -47,11 +49,27 @@ public class Main {
         //tests for adding and removing pet from shelter
         //can remove pet with actual pet being passed or the Id also seperately
         System.out.println ("");
-        newShelter.addPet(new Dog(4, "Max", null, "German Shepherd", 5));
-        int idToRemove = 2;
-        Pet petToRemove = newShelter.findPetById(idToRemove);
+        newShelter.addPet(new Dog(4, "Alex", null, "German Shepherd", 5));
+        
+      // String nameToRemove = "Iggy";
+      // String typeToRemove = "Iguana";
+       
+       String nameToRemove = "Thumper";
+       String typeToRemove = "Dutch";
+       
+        Pet petToRemove = newShelter.findPetByNameAndType(nameToRemove , typeToRemove);
         newShelter.removePet(petToRemove);
         newShelter.removePetByID(1);
+        
+        //sort by name
+        //newShelter.sortPets();
+        
+        //sort by age
+         newShelter.sortPets(new AgeComparator());
+         
+        //sort by species
+        //newShelter.sortPets(new SpeciesComparator()); 
+        
         printPets(newShelter.getAllPets());
 	}
 	
