@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 import java.util.List;
 
+import model.Dog;
 import model.ExoticAnimal;
 import model.Manager;
 import model.Pet;
@@ -27,7 +28,31 @@ public class Main {
        // printPets(adaptedExotics);
         
         
+        //adds pets loaded from JSON to shelter
+        for(Pet pet : loadedPets) {
+        	newShelter.addPet(pet);
+        }
+         
+        //adds exotic animals loaded from JSON to shelter as adapted pets
+        for(Pet pet : adaptedExotics) {
+        	newShelter.addPet(pet);
+        }
         
+        //prints all pets currently in shelter
+        System.out.println ("");
+        System.out.println("All pets in shelter:");
+        printPets(newShelter.getAllPets());
+        
+        
+        //tests for adding and removing pet from shelter
+        //can remove pet with actual pet being passed or the Id also seperately
+        System.out.println ("");
+        newShelter.addPet(new Dog(4, "Max", null, "German Shepherd", 5));
+        int idToRemove = 2;
+        Pet petToRemove = newShelter.findPetById(idToRemove);
+        newShelter.removePet(petToRemove);
+        newShelter.removePetByID(1);
+        printPets(newShelter.getAllPets());
 	}
 	
 	
