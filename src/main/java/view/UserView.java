@@ -38,11 +38,14 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import javax.swing.JPanel;
+import java.awt.SystemColor;
 
 public class UserView extends JFrame {
 	private MainTable table;
 	private JButton helpButton;
-	private JComboBox sortByBox;
+	private JComboBox<String> sortByBox;
+	private JButton adoptButton;
 	Shelter<Pet> shelter;
 	
 	
@@ -62,25 +65,20 @@ public class UserView extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(8, 76, 400, 400);
+		scrollPane.setBounds(8, 76, 400, 376);
 		getContentPane().add(scrollPane);
 		
 		table = new MainTable(scrollPane, shelter);
 		
-		JLabel lblNewLabel = new JLabel("All Pets");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 35));
-		lblNewLabel.setBounds(10, 6, 150, 65);
-		getContentPane().add(lblNewLabel);
-		
 		JLabel label = new JLabel("Sort by:");
 		label.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
-		label.setBounds(198, 26, 83, 38);
+		label.setBounds(198, 27, 83, 38);
 		getContentPane().add(label);
 		
-		sortByBox = new JComboBox();
+		sortByBox = new JComboBox<String>();
 		sortByBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 18));
-		sortByBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Species", "Age"}));
-		sortByBox.setBounds(268, 29, 141, 35);
+		sortByBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Name", "Species", "Age"}));
+		sortByBox.setBounds(267, 30, 141, 35);
 		getContentPane().add(sortByBox);
 		
 		
@@ -100,6 +98,55 @@ public class UserView extends JFrame {
 		helpButton.setBounds(668, 6, 30, 30);
 		getContentPane().add(helpButton);
 		
+		JLabel lblNewLabel = new JLabel("All Pets");
+		lblNewLabel.setBounds(10, 15, 141, 50);
+		getContentPane().add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 35));
+		
+		JLabel lblNewLabel_1 = new JLabel("Edit");
+		lblNewLabel_1.setBackground(SystemColor.window);
+		lblNewLabel_1.setForeground(SystemColor.infoText);
+		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+		lblNewLabel_1.setBounds(538, 72, 41, 35);
+		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Create");
+		lblNewLabel_1_1.setForeground(SystemColor.infoText);
+		lblNewLabel_1_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+		lblNewLabel_1_1.setBackground(SystemColor.window);
+		lblNewLabel_1_1.setBounds(526, 262, 70, 38);
+		getContentPane().add(lblNewLabel_1_1);
+		
+		JButton SaveButton = new JButton("Save");
+		SaveButton.setToolTipText("Click to save the list as a .json file");
+		SaveButton.setFont(new Font("Comic Sans MS", Font.BOLD, 21));
+		SaveButton.setBounds(417, 392, 281, 60);
+		getContentPane().add(SaveButton);
+		
+		JButton AddButton = new JButton("Add Pet");
+		AddButton.setToolTipText("Click to add a new pet to the shelter.");
+		AddButton.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
+		AddButton.setBounds(417, 292, 281, 100);
+		getContentPane().add(AddButton);
+		
+		adoptButton = new JButton("Adopt");
+		adoptButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		adoptButton.setToolTipText("Click to adopt the selected pet.");
+		adoptButton.setBounds(418, 101, 281, 50);
+		getContentPane().add(adoptButton);
+		
+		JButton ViewButton = new JButton("View Details");
+		ViewButton.setToolTipText("Click to view details of the selected pet.");
+		ViewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		ViewButton.setBounds(418, 151, 281, 50);
+		getContentPane().add(ViewButton);
+		
+		JButton RemoveButton = new JButton("Remove");
+		RemoveButton.setToolTipText("Click to remove the selected pet from the shelter.");
+		RemoveButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		RemoveButton.setBounds(418, 201, 281, 50);
+		getContentPane().add(RemoveButton);
+		
 		
 		//Image image = ImageIO.read("src/main/resources/question mark.png")
 		
@@ -115,6 +162,12 @@ public class UserView extends JFrame {
 	
 	public void addComboBoxListener(ItemListener listener) {
 		sortByBox.addItemListener(listener);
+	}
+	
+	
+	
+	public void addAdoptButtonListener(ActionListener listener) {
+		adoptButton.addActionListener(listener);
 	}
 	
 	public MainTable getMainTable() {

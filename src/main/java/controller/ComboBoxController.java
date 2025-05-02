@@ -37,19 +37,16 @@ public class ComboBoxController {
 					switch (selection) {
 						case "Age":
 							view.getShelter().sortPets(new AgeComparator());
-							view.getMainTable().updateTable(view.getShelter().getAllPets());
 							break;
 						case "Species":
 							view.getShelter().sortPets(new SpeciesComparator());
-							view.getMainTable().updateTable(view.getShelter().getAllPets());
 							break;
 						case "Name":
 							view.getShelter().sortPets();
-							view.getMainTable().updateTable(view.getShelter().getAllPets());
 							break;
 					}
 					
-					
+					view.getMainTable().updateTable(view.getShelter().getAllPets());
 				}
 			}
 			
