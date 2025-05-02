@@ -46,6 +46,10 @@ public boolean adoptPet(int id) {
 	return false; 
 }
 
+public List<T> getAllPets(){
+	return new ArrayList<>(pets); 
+}
+
 
 public List<T> getAvailablePets(){
 	List <T> availablePets = new ArrayList<>(); 
