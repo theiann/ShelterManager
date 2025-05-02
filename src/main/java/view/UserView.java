@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +23,10 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
+
+import model.Pet;
+import model.Shelter;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Choice;
@@ -35,31 +40,32 @@ import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 
 public class UserView extends JFrame {
-	private JTable table;
+	private MainTable table;
 	private JButton helpButton;
 	private JComboBox sortByBox;
+	Shelter<Pet> shelter;
 	
 	
-	public UserView() {
-		initialize();
+	public UserView(Shelter<Pet> s) {
+		this.shelter = s;
+		initialize(s);
 	}
 	
 	
 	
-	private void initialize() {
-		Border blueline = BorderFactory.createLineBorder(Color.blue, 2);
+	private void initialize(Shelter<Pet> shelter) {
 		
 		
 		setTitle("Shelter Manager");
-		setSize(720, 720);
+		setSize(720, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(8, 76, 401, 605);
+		scrollPane.setBounds(8, 76, 400, 400);
 		getContentPane().add(scrollPane);
 		
-		MainTable table = new MainTable(getContentPane(), blueline, scrollPane);
+		table = new MainTable(scrollPane, shelter);
 		
 		JLabel lblNewLabel = new JLabel("All Pets");
 		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 35));
@@ -73,7 +79,7 @@ public class UserView extends JFrame {
 		
 		sortByBox = new JComboBox();
 		sortByBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 18));
-		sortByBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Age", "Type"}));
+		sortByBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Species", "Age"}));
 		sortByBox.setBounds(268, 29, 141, 35);
 		getContentPane().add(sortByBox);
 		
@@ -106,6 +112,19 @@ public class UserView extends JFrame {
 	public void addHelpButtonListener(ActionListener listener) {
 		helpButton.addActionListener(listener);
 	}
+	
+	public void addComboBoxListener(ItemListener listener) {
+		sortByBox.addItemListener(listener);
+	}
+	
+	public MainTable getMainTable() {
+		return table;
+	}
+	
+	public Shelter<Pet> getShelter(){
+		return shelter;
+	}
 }
+
 
 

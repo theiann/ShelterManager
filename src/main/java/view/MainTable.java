@@ -3,6 +3,7 @@ package view;
 import java.awt.Container;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,49 +14,24 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import model.Pet;
+import model.Shelter;
+
 public class MainTable{
-	private static JTable table;
+	private JTable table;
+	private DefaultTableModel model;
 	
-	public class TestClass{
-		int age;
-		String name;
-		String type;
-		String species;
+	public MainTable(JScrollPane scrollPane, Shelter<Pet> shelter) {
 		
-		public TestClass(int a, String n, String t, String s) {
-			this.age = a;
-			this.name = n;
-			this.type = t;
-			this.species = s;
-		}
-	}
-	
-	public MainTable(Container contentPlane, Border border, JScrollPane scrollPane) {
-		ArrayList<TestClass> list = new ArrayList<TestClass>();
-		TestClass object1 = new TestClass(2, "Jeff", "Dog", "Labrador");
-		TestClass object2 = new TestClass(4, "Car", "Cat", "Orange");
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		list.add(object1);
-		list.add(object2);
-		
-		
-		
-		DefaultTableModel model = new DefaultTableModel();
+		List<Pet> list = shelter.getAllPets();
+		model = new DefaultTableModel() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public boolean isCellEditable(int a, int b) {
+				return false;
+			}
+		};
 		
 		
 		
@@ -69,17 +45,29 @@ public class MainTable{
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		
 		for(int i = 0; i < list.size(); i++) {
-			model.addRow(new Object[]{list.get(i).name, list.get(i).type, list.get(i).species, list.get(i).age});
+			model.addRow(new Object[]{list.get(i).getName(), list.get(i).getType(), list.get(i).getSpecies(), list.get(i).getAge()});
 		}
 		table = new JTable(model);
 		table.setRowHeight(50);
 		table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-		table.getColumnModel().getColumn(0).setPreferredWidth(300);
-		table.getColumnModel().getColumn(1).setPreferredWidth(130);
-		table.getColumnModel().getColumn(2).setPreferredWidth(130);
+		table.getColumnModel().getColumn(0).setPreferredWidth(80);
+		table.getColumnModel().getColumn(1).setPreferredWidth(80);
+		table.getColumnModel().getColumn(2).setPreferredWidth(200);
 		table.getColumnModel().getColumn(3).setPreferredWidth(40);
-		scrollPane.setViewportView(table);
-		scrollPane.setBorder(border);
 		
+		scrollPane.setViewportView(table);
+		
+	}
+	
+	public JTable getTable() {
+		return table;
+	}
+	
+	
+	public void updateTable(List<Pet> list) {
+		model.setRowCount(0);
+		for(int i = 0; i < list.size(); i++) {
+			model.addRow(new Object[]{list.get(i).getName(), list.get(i).getType(), list.get(i).getSpecies(), list.get(i).getAge()});
+		}
 	}
 }

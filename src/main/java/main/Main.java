@@ -10,6 +10,7 @@ import model.Pet;
 import model.Shelter;
 import model.AgeComparator;
 import model.SpeciesComparator;
+import controller.ComboBoxController;
 import controller.HelpButtonController;
 
 import view.*;
@@ -72,13 +73,14 @@ public class Main {
         //newShelter.sortPets();
         
         //sort by age
-         newShelter.sortPets(new AgeComparator());
+        //newShelter.sortPets(new AgeComparator());
          
         //sort by species
         //newShelter.sortPets(new SpeciesComparator()); 
         
-        UserView view = new UserView();
-        HelpButtonController helpController= new HelpButtonController(view);
+        UserView view = new UserView(newShelter);
+        HelpButtonController helpController = new HelpButtonController(view);
+        ComboBoxController sortByController = new ComboBoxController(view);
          
         printPets(newShelter.getAllPets());
         
