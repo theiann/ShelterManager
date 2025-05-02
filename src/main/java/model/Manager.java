@@ -44,10 +44,19 @@ public List<Pet> loadPets() throws IOException{
 	return allPets; 
 }
 
+public List<ExoticAnimal> loadExoticAnimals() throws IOException {
+    try (Reader reader = new FileReader(EXOTICANIMALS_FILE)) {
+        return gson.fromJson(reader, new TypeToken<List<ExoticAnimal>>(){}.getType());
+    }
+}
 
-
-
-
+public List<Pet> adaptExoticAnimals(List<ExoticAnimal> exoticAnimals){
+	List<Pet> adaptedPets = new ArrayList<>();
+	for(ExoticAnimal exotic : exoticAnimals) {
+		adaptedPets.add(new ExoticAdapter(exotic));
+	}
+	return adaptedPets; 
+}
 
 
 }
