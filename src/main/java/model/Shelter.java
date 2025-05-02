@@ -29,17 +29,17 @@ public T removePetByID(int id) {
 	return null; 
 }
 
-public T findPetById(int id) {
-	for (T pet : pets) {
-		if(pet.getID()==id) {
-			return pet;
-		}
+public T findPetByNameAndType(String name, String type) {
+	for(int i = 0; i<pets.size(); i++) {
+        if(pets.get(i).getName().equalsIgnoreCase(name) && pets.get(i).getSpecies().equalsIgnoreCase(type)) {
+            return pets.remove(i);
+        }
 	}
 	return null;
 }
 
-public boolean adoptPet(int id) {
-	T pet = findPetById(id); 
+public boolean adoptPet(String name, String type) {
+	T pet = findPetByNameAndType(name,type);
 	if(pet != null) {
 		return pet.adopt();
 	}
