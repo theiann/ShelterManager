@@ -8,6 +8,8 @@ import model.Manager;
 import model.Pet;
 import model.Shelter;
 
+import view.*;
+
 public class Main {
 
 	public static void main(String[] args) throws IOException {
@@ -16,16 +18,16 @@ public class Main {
 		
 		//Loads and prints pets loaded from pets.JSON
 		List<Pet> loadedPets =dataManager.loadPets();
-		System.out.println ("Loaded "+loadedPets.size() + "pets from Pets.JSON:");
+		System.out.println ("Loaded "+loadedPets.size() + " pets from Pets.JSON:");
 		//printPets(loadedPets);
 	    
 		//Loads and prints pets loaded from exoticanimal.JSON
 		List<ExoticAnimal>exotics = dataManager.loadExoticAnimals();
 		List<Pet> adaptedExotics = dataManager.adaptExoticAnimals(exotics);
 		System.out.println ("");
-        System.out.println ("Loaded "+ adaptedExotics.size() + "exotic animals from exotic_animals.JSON:");
+        System.out.println ("Loaded "+ adaptedExotics.size() + " exotic animals from exotic_animals.JSON:");
        // printPets(adaptedExotics);
-        
+       UserView view = new UserView();
         
         
 	}

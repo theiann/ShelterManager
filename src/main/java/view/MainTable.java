@@ -30,7 +30,7 @@ public class MainTable{
 		}
 	}
 	
-	public MainTable(Container contentPlane, Border border) {
+	public MainTable(Container contentPlane, Border border, JScrollPane scrollPane) {
 		ArrayList<TestClass> list = new ArrayList<TestClass>();
 		TestClass object1 = new TestClass(2, "Jeff", "Dog", "Labrador");
 		TestClass object2 = new TestClass(4, "Car", "Cat", "Orange");
@@ -53,10 +53,6 @@ public class MainTable{
 		list.add(object1);
 		list.add(object2);
 		
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 131, 600, 528);
-		contentPlane.add(scrollPane);
 		
 		
 		DefaultTableModel model = new DefaultTableModel();

@@ -2,10 +2,15 @@ package view;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import java.awt.Image;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
@@ -19,6 +24,15 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Choice;
+import java.awt.Label;
+import java.awt.Toolkit;
+
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
 
 public class UserView extends JFrame {
 	private JTable table;
@@ -29,31 +43,58 @@ public class UserView extends JFrame {
 	
 	
 	private void initialize() {
-		Border orangeline = BorderFactory.createLineBorder(Color.blue, 2);
+		Border blueline = BorderFactory.createLineBorder(Color.blue, 2);
 		
 		
 		setTitle("Shelter Manager");
-		setSize(1200, 720);
+		setSize(720, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		MainTable table = new MainTable(getContentPane(), orangeline);
 		
-		JLabel lblNewLabel = new JLabel("All Available Pets");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 35));
-		lblNewLabel.setBounds(139, 40, 304, 65);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(8, 76, 401, 605);
+		getContentPane().add(scrollPane);
+		
+		MainTable table = new MainTable(getContentPane(), blueline, scrollPane);
+		
+		JLabel lblNewLabel = new JLabel("All Pets");
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 35));
+		lblNewLabel.setBounds(10, 6, 150, 65);
 		getContentPane().add(lblNewLabel);
 		
+		JLabel label = new JLabel("Sort by:");
+		label.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+		label.setBounds(198, 26, 83, 38);
+		getContentPane().add(label);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 18));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Age", "Type"}));
+		comboBox.setBounds(268, 29, 141, 35);
+		getContentPane().add(comboBox);
 		
 		
 		
 		
+        ImageIcon icon;;
 		
 		
+		icon = new ImageIcon("src/main/resources/question mark.png");
+		setIconImage(icon.getImage());
+		
+		Image img = icon.getImage() ;  
+		Image newimg = img.getScaledInstance(30, 30,  java.awt.Image.SCALE_SMOOTH ) ;  
+		icon = new ImageIcon(newimg);
+		
+		JButton btnNewButton = new JButton(icon);
+		btnNewButton.setBounds(668, 6, 30, 30);
+		getContentPane().add(btnNewButton);
 		
 		
+		//Image image = ImageIO.read("src/main/resources/question mark.png")
 		
 		
-		
+
 		setVisible(true);
 	}
 }
