@@ -30,9 +30,8 @@ public T findPetByNameAndType(String name, String type) {
 	return null;
 }
 
-public boolean adoptPet(String name, String type) {
-	T pet = findPetByNameAndType(name,type);
-	if(pet != null) {
+public boolean adoptPet(T pet) {
+	if(pet != null) { 
 		return pet.adopt();
 	}
 	return false; 

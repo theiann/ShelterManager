@@ -59,7 +59,12 @@ public class Main {
        
         Pet petToRemove = newShelter.findPetByNameAndType(nameToRemove , typeToRemove);
         newShelter.removePet(petToRemove);
-        newShelter.removePetByID(1);
+        
+        //adopting pet
+        Pet pet2 = newShelter.findPetByNameAndType("Whiskers" , "Siamese");
+        Pet pet1 = newShelter.findPetByNameAndType("Zazu" , "Toucan");
+        newShelter.adoptPet(pet2);
+        newShelter.adoptPet(pet1);
         
         //sort by name
         //newShelter.sortPets();
@@ -71,6 +76,9 @@ public class Main {
         //newShelter.sortPets(new SpeciesComparator()); 
         
         printPets(newShelter.getAllPets());
+        
+        dataManager.saveOntoFile(newShelter.getAllPets());
+        System.out.println("Pets saved successfully onto JSON file");
 	}
 	
 	
