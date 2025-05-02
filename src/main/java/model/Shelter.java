@@ -20,27 +20,18 @@ public boolean removePet(T pet) {
 	return pets.remove(pet);
 } 
 
-public T removePetByID(int id) {
-	for(int i = 0; i<pets.size(); i++) {
-		if(pets.get(i).getID() == id) {
-			return pets.remove(i);
-		}
-	}
-	return null; 
-}
 
-public T findPetById(int id) {
-	for (T pet : pets) {
-		if(pet.getID()==id) {
-			return pet;
-		}
+public T findPetByNameAndType(String name, String type) {
+	 for (T pet : pets) {
+         if(pet.getName().equalsIgnoreCase(name) && pet.getSpecies().equalsIgnoreCase(type)) {
+             return pet;
+         }  
 	}
 	return null;
 }
 
-public boolean adoptPet(int id) {
-	T pet = findPetById(id); 
-	if(pet != null) {
+public boolean adoptPet(T pet) {
+	if(pet != null) { 
 		return pet.adopt();
 	}
 	return false; 

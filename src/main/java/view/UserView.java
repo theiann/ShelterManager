@@ -36,6 +36,10 @@ import javax.swing.JSeparator;
 
 public class UserView extends JFrame {
 	private JTable table;
+	private JButton helpButton;
+	private JComboBox sortByBox;
+	
+	
 	public UserView() {
 		initialize();
 	}
@@ -67,11 +71,11 @@ public class UserView extends JFrame {
 		label.setBounds(198, 26, 83, 38);
 		getContentPane().add(label);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 18));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Age", "Type"}));
-		comboBox.setBounds(268, 29, 141, 35);
-		getContentPane().add(comboBox);
+		sortByBox = new JComboBox();
+		sortByBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 18));
+		sortByBox.setModel(new DefaultComboBoxModel(new String[] {"Name", "Age", "Type"}));
+		sortByBox.setBounds(268, 29, 141, 35);
+		getContentPane().add(sortByBox);
 		
 		
 		
@@ -86,9 +90,9 @@ public class UserView extends JFrame {
 		Image newimg = img.getScaledInstance(30, 30,  java.awt.Image.SCALE_SMOOTH ) ;  
 		icon = new ImageIcon(newimg);
 		
-		JButton btnNewButton = new JButton(icon);
-		btnNewButton.setBounds(668, 6, 30, 30);
-		getContentPane().add(btnNewButton);
+		helpButton = new JButton(icon);
+		helpButton.setBounds(668, 6, 30, 30);
+		getContentPane().add(helpButton);
 		
 		
 		//Image image = ImageIO.read("src/main/resources/question mark.png")
@@ -96,6 +100,11 @@ public class UserView extends JFrame {
 		
 
 		setVisible(true);
+	}
+	
+	
+	public void addHelpButtonListener(ActionListener listener) {
+		helpButton.addActionListener(listener);
 	}
 }
 
