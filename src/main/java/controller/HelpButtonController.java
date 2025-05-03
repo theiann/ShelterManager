@@ -17,6 +17,10 @@ public class HelpButtonController {
 		this.view.addHelpButtonListener(new HelpButtonListener());
 	}
 	
+	
+	/*
+	 * This method displays the help popup when clicked.
+	 */
 	class HelpButtonListener implements ActionListener{
 
 		@Override
