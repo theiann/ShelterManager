@@ -13,7 +13,8 @@ import model.SpeciesComparator;
 import controller.AdoptButtonController;
 import controller.ComboBoxController;
 import controller.HelpButtonController;
-
+import controller.RemoveButtonController;
+import controller.ViewButtonController;
 import view.*;
 
 public class Main {
@@ -83,7 +84,8 @@ public class Main {
         HelpButtonController helpController = new HelpButtonController(view);
         ComboBoxController sortByController = new ComboBoxController(view);
         AdoptButtonController adoptController = new AdoptButtonController(view);
-         
+        ViewButtonController viewButtonController = new ViewButtonController(view);
+        RemoveButtonController removeController = new RemoveButtonController(view);
         printPets(newShelter.getAllPets());
         
         //dataManager.saveOntoFile(newShelter.getAllPets());

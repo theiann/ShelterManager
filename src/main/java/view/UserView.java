@@ -46,6 +46,8 @@ public class UserView extends JFrame {
 	private JButton helpButton;
 	private JComboBox<String> sortByBox;
 	private JButton adoptButton;
+	private JButton viewButton;
+	private JButton removeButton;
 	Shelter<Pet> shelter;
 	
 	
@@ -135,17 +137,17 @@ public class UserView extends JFrame {
 		adoptButton.setBounds(418, 101, 281, 50);
 		getContentPane().add(adoptButton);
 		
-		JButton ViewButton = new JButton("View Details");
-		ViewButton.setToolTipText("Click to view details of the selected pet.");
-		ViewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		ViewButton.setBounds(418, 151, 281, 50);
-		getContentPane().add(ViewButton);
+		viewButton = new JButton("View Details");
+		viewButton.setToolTipText("Click to view details of the selected pet.");
+		viewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		viewButton.setBounds(418, 151, 281, 50);
+		getContentPane().add(viewButton);
 		
-		JButton RemoveButton = new JButton("Remove");
-		RemoveButton.setToolTipText("Click to remove the selected pet from the shelter.");
-		RemoveButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		RemoveButton.setBounds(418, 201, 281, 50);
-		getContentPane().add(RemoveButton);
+		removeButton = new JButton("Remove");
+		removeButton.setToolTipText("Click to remove the selected pet from the shelter.");
+		removeButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		removeButton.setBounds(418, 201, 281, 50);
+		getContentPane().add(removeButton);
 		
 		
 		//Image image = ImageIO.read("src/main/resources/question mark.png")
@@ -164,10 +166,16 @@ public class UserView extends JFrame {
 		sortByBox.addItemListener(listener);
 	}
 	
-	
+	public void addViewButtonListener(ActionListener listener) {
+		viewButton.addActionListener(listener);
+	}
 	
 	public void addAdoptButtonListener(ActionListener listener) {
 		adoptButton.addActionListener(listener);
+	}
+	
+	public void addRemoveButtonListener(ActionListener listener) {
+		removeButton.addActionListener(listener);
 	}
 	
 	public MainTable getMainTable() {
