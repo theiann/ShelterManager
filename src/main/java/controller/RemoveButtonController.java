@@ -21,6 +21,9 @@ private UserView view;
 	
 	class RemoveButtonListener implements ActionListener{
 
+		/*
+		 * This method removes the selected pet and then refreshes the table.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			

@@ -24,6 +24,11 @@ public class AdoptButtonController {
 	
 	class AdoptButtonListener implements ActionListener{
 
+		
+		/*
+		 * This method gets the pet currently selected and tries to mark it as adopted.
+		 * If the pet is already adopted or if no pet is selected, it will pop up with an error message.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
@@ -44,7 +49,7 @@ public class AdoptButtonController {
 					JOptionPane.showMessageDialog((Component) null,selectedPet.getName() + " is already marked as adopted.", "Oops!", JOptionPane.ERROR_MESSAGE);
 					}
 			}
-			//JOptionPane.showMessageDialog((Component) null,"To adopt a pet, select the pet you want to adopt from the list and click the adopt button.", "Help", JOptionPane.INFORMATION_MESSAGE);
+			
 			
 		}
 		

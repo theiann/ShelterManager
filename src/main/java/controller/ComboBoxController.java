@@ -22,6 +22,12 @@ public class ComboBoxController {
 	
 	class ComboBoxListener implements ItemListener{
 
+		
+		
+		/*
+		 * This method allows the user to select between 3 different ways to sort the table of pets.
+		 * After it sorts, it then refreshes the list.
+		 */
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if(e.getID() == ItemEvent.ITEM_STATE_CHANGED) {

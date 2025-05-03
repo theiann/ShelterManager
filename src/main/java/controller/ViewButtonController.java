@@ -21,6 +21,11 @@ private UserView view;
 	
 	class ViewButtonListener implements ActionListener{
 
+		
+		/*
+		 * This method gets the pet currently selected in the table and displays all data associated with that pet.
+		 * If no pet is selected it will give an error popup.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			

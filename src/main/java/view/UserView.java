@@ -73,7 +73,7 @@ public class UserView extends JFrame {
 		scrollPane.setBounds(8, 76, 400, 376);
 		getContentPane().add(scrollPane);
 		
-		table = new MainTable(scrollPane, shelter);
+		table = new MainTable(scrollPane, shelter.getAllPets());
 		
 		JLabel label = new JLabel("Sort by:");
 		label.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));

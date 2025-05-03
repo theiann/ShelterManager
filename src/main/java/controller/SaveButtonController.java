@@ -20,6 +20,10 @@ public class SaveButtonController {
 	
 	class SaveButtonListener implements ActionListener{
 
+		
+		/*
+		 * This method saves the list of pets currently in shelter to a json file when the save button is pressed.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {

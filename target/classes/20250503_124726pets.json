@@ -1,0 +1,58 @@
+[
+  {
+    "id": 4,
+    "name": "Alex",
+    "type": "Dog",
+    "species": "German Shepherd",
+    "age": 5,
+    "adopted": false
+  },
+  {
+    "id": 1,
+    "name": "Buddy",
+    "type": "Dog",
+    "species": "Golden Retriever",
+    "age": 3,
+    "adopted": false
+  },
+  {
+    "id": 3,
+    "name": "Iggy",
+    "type": "Reptile",
+    "species": "Iguana",
+    "age": 2,
+    "adopted": false
+  },
+  {
+    "id": 2,
+    "name": "Kaa",
+    "type": "Reptile",
+    "species": "Python",
+    "age": 6,
+    "adopted": false
+  },
+  {
+    "id": 4,
+    "name": "Shadow",
+    "type": "Dog",
+    "species": "German Shepherd",
+    "age": 5,
+    "adopted": false
+  },
+  {
+    "id": 2,
+    "name": "Whiskers",
+    "type": "Cat",
+    "species": "Siamese",
+    "age": 2,
+    "adopted": true
+  },
+  {
+    "id": 1,
+    "name": "Zazu",
+    "type": "Bird",
+    "species": "Toucan",
+    "age": 4,
+    "adopted": true
+  }
+]
