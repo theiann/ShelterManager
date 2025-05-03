@@ -15,6 +15,7 @@ import controller.AdoptButtonController;
 import controller.ComboBoxController;
 import controller.HelpButtonController;
 import controller.RemoveButtonController;
+import controller.SaveButtonController;
 import controller.ViewButtonController;
 import view.*;
 
@@ -63,12 +64,12 @@ public class Main {
        String nameToRemove = "Thumper";
        String typeToRemove = "Dutch";
        
-        Pet petToRemove = newShelter.findPetByNameAndType(nameToRemove , typeToRemove);
+        Pet petToRemove = newShelter.findPetByNameAndSpecies(nameToRemove , typeToRemove);
         newShelter.removePet(petToRemove);
         
         //adopting pet
-        Pet pet2 = newShelter.findPetByNameAndType("Whiskers" , "Siamese");
-        Pet pet1 = newShelter.findPetByNameAndType("Zazu" , "Toucan");
+        Pet pet2 = newShelter.findPetByNameAndSpecies("Whiskers" , "Siamese");
+        Pet pet1 = newShelter.findPetByNameAndSpecies("Zazu" , "Toucan");
         newShelter.adoptPet(pet2);
         newShelter.adoptPet(pet1);
         
@@ -88,6 +89,7 @@ public class Main {
         ViewButtonController viewButtonController = new ViewButtonController(view);
         RemoveButtonController removeController = new RemoveButtonController(view);
         AddButtonController addController = new AddButtonController(view);
+        SaveButtonController saveController = new SaveButtonController(view);
         printPets(newShelter.getAllPets());
         
         

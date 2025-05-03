@@ -23,6 +23,13 @@ public class AddButtonController {
 	class AddButtonListener implements ActionListener{
 
 		@Override
+		
+		
+		/*
+		 * This method will open a dialog box for the user to fill out.
+		 * If any text fields are left blank it will give an error dialog box.
+		 * If the Age and ID text fields are not digits it will give an error dialog box.
+		 */
 		public void actionPerformed(ActionEvent e) {
 			
 			JTextField name = new JTextField();

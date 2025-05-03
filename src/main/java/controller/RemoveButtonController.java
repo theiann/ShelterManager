@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
-import controller.AdoptButtonController.AdoptButtonListener;
 import model.Pet;
 import view.UserView;
 
@@ -35,7 +34,7 @@ private UserView view;
 				String selectedName = (String) table.getModel().getValueAt(table.getSelectedRow(), 0);
 				String selectedSpecies = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				System.out.println(selectedName + " " + selectedSpecies);
-				Pet selectedPet = view.getShelter().findPetByNameAndType(selectedName, selectedSpecies);
+				Pet selectedPet = view.getShelter().findPetByNameAndSpecies(selectedName, selectedSpecies);
 				view.getShelter().removePet(selectedPet);
 				view.getMainTable().updateTable(view.getShelter().getAllPets());
 			}

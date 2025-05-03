@@ -42,6 +42,7 @@ import javax.swing.JPanel;
 import java.awt.SystemColor;
 
 public class UserView extends JFrame {
+	private static final long serialVersionUID = 1L;
 	private MainTable table;
 	private JButton helpButton;
 	private JComboBox<String> sortByBox;
@@ -49,6 +50,7 @@ public class UserView extends JFrame {
 	private JButton viewButton;
 	private JButton removeButton;
 	private JButton addButton;
+	private JButton saveButton;
 	Shelter<Pet> shelter;
 	
 	
@@ -87,17 +89,18 @@ public class UserView extends JFrame {
 		
 		
 		
-        ImageIcon icon;;
-		
-		
-		icon = new ImageIcon("src/main/resources/question mark.png");
+        ImageIcon helpSymbol;
+		ImageIcon icon;
+		icon = new ImageIcon("src/main/resources/1936729_77386.png");
+		helpSymbol = new ImageIcon("src/main/resources/question mark.png");
 		setIconImage(icon.getImage());
 		
-		Image img = icon.getImage() ;  
+		Image img = helpSymbol.getImage() ;  
 		Image newimg = img.getScaledInstance(30, 30,  java.awt.Image.SCALE_SMOOTH ) ;  
-		icon = new ImageIcon(newimg);
+		helpSymbol = new ImageIcon(newimg);
 		
-		helpButton = new JButton(icon);
+		helpButton = new JButton(helpSymbol);
+		
 		helpButton.setBounds(668, 6, 30, 30);
 		getContentPane().add(helpButton);
 		
@@ -120,11 +123,11 @@ public class UserView extends JFrame {
 		lblNewLabel_1_1.setBounds(526, 262, 70, 38);
 		getContentPane().add(lblNewLabel_1_1);
 		
-		JButton SaveButton = new JButton("Save");
-		SaveButton.setToolTipText("Click to save the list as a .json file");
-		SaveButton.setFont(new Font("Comic Sans MS", Font.BOLD, 21));
-		SaveButton.setBounds(417, 392, 281, 60);
-		getContentPane().add(SaveButton);
+		saveButton = new JButton("Save");
+		saveButton.setToolTipText("Click to save the list as a .json file");
+		saveButton.setFont(new Font("Comic Sans MS", Font.BOLD, 21));
+		saveButton.setBounds(417, 392, 281, 60);
+		getContentPane().add(saveButton);
 		
 		addButton = new JButton("Add Pet");
 		addButton.setToolTipText("Click to add a new pet to the shelter.");
@@ -180,6 +183,9 @@ public class UserView extends JFrame {
 	}
 	public void addAddButtonListener(ActionListener listener) {
 		addButton.addActionListener(listener);
+	}
+	public void addSaveButtonListener(ActionListener listener) {
+		saveButton.addActionListener(listener);
 	}
 	
 	public MainTable getMainTable() {

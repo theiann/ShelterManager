@@ -37,7 +37,7 @@ public class AdoptButtonController {
 				String selectedName = (String) table.getModel().getValueAt(table.getSelectedRow(), 0);
 				String selectedSpecies = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				System.out.println(selectedName + " " + selectedSpecies);
-				Pet selectedPet = view.getShelter().findPetByNameAndType(selectedName, selectedSpecies);
+				Pet selectedPet = view.getShelter().findPetByNameAndSpecies(selectedName, selectedSpecies);
 				if(selectedPet.adopt() == true) {
 					JOptionPane.showMessageDialog((Component) null,selectedPet.getName() + " has been marked as adopted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 				} else {

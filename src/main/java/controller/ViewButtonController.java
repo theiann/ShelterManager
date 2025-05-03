@@ -34,7 +34,7 @@ private UserView view;
 				String selectedName = (String) table.getModel().getValueAt(table.getSelectedRow(), 0);
 				String selectedSpecies = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				System.out.println(selectedName + " " + selectedSpecies);
-				Pet selectedPet = view.getShelter().findPetByNameAndType(selectedName, selectedSpecies);
+				Pet selectedPet = view.getShelter().findPetByNameAndSpecies(selectedName, selectedSpecies);
 				String petInfo = "Name: " + selectedPet.getName() + 
 						"\nAge: " + selectedPet.getAge() +
 						"\nType: " + selectedPet.getType() +
