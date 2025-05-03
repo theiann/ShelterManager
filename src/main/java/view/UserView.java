@@ -48,6 +48,7 @@ public class UserView extends JFrame {
 	private JButton adoptButton;
 	private JButton viewButton;
 	private JButton removeButton;
+	private JButton addButton;
 	Shelter<Pet> shelter;
 	
 	
@@ -125,11 +126,11 @@ public class UserView extends JFrame {
 		SaveButton.setBounds(417, 392, 281, 60);
 		getContentPane().add(SaveButton);
 		
-		JButton AddButton = new JButton("Add Pet");
-		AddButton.setToolTipText("Click to add a new pet to the shelter.");
-		AddButton.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
-		AddButton.setBounds(417, 292, 281, 100);
-		getContentPane().add(AddButton);
+		addButton = new JButton("Add Pet");
+		addButton.setToolTipText("Click to add a new pet to the shelter.");
+		addButton.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
+		addButton.setBounds(417, 292, 281, 100);
+		getContentPane().add(addButton);
 		
 		adoptButton = new JButton("Adopt");
 		adoptButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
@@ -176,6 +177,9 @@ public class UserView extends JFrame {
 	
 	public void addRemoveButtonListener(ActionListener listener) {
 		removeButton.addActionListener(listener);
+	}
+	public void addAddButtonListener(ActionListener listener) {
+		addButton.addActionListener(listener);
 	}
 	
 	public MainTable getMainTable() {

@@ -10,6 +10,7 @@ import model.Pet;
 import model.Shelter;
 import model.AgeComparator;
 import model.SpeciesComparator;
+import controller.AddButtonController;
 import controller.AdoptButtonController;
 import controller.ComboBoxController;
 import controller.HelpButtonController;
@@ -86,7 +87,9 @@ public class Main {
         AdoptButtonController adoptController = new AdoptButtonController(view);
         ViewButtonController viewButtonController = new ViewButtonController(view);
         RemoveButtonController removeController = new RemoveButtonController(view);
+        AddButtonController addController = new AddButtonController(view);
         printPets(newShelter.getAllPets());
+        
         
         //dataManager.saveOntoFile(newShelter.getAllPets());
         //System.out.println("Pets saved successfully onto JSON file");

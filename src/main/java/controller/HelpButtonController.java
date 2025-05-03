@@ -21,7 +21,11 @@ public class HelpButtonController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog((Component) null,"To adopt a pet, select the pet you want to adopt from the list and click the adopt button.", "Help", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog((Component) null,"To adopt a pet, select the pet you want to adopt from the list and then click the Adopt button."
+					+ "\n\nTo display info on a pet, select the pet you want to view from the list and then click the View Details button."
+					+ "\n\nTo remove a pet from the shelter, select the pet you want to remove from the list and then click the Remove button."
+					+ "\n\nTo add a pet to the shelter, click the Add Pet button and fill out all prompts."
+					+ "\n\nTo save all pets as a .json file, click the Save button.", "Help", JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 		

@@ -39,9 +39,9 @@ public class AdoptButtonController {
 				System.out.println(selectedName + " " + selectedSpecies);
 				Pet selectedPet = view.getShelter().findPetByNameAndType(selectedName, selectedSpecies);
 				if(selectedPet.adopt() == true) {
-					JOptionPane.showMessageDialog((Component) null,"This pet has been marked as adopted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog((Component) null,selectedPet.getName() + " has been marked as adopted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 				} else {
-					JOptionPane.showMessageDialog((Component) null,"This pet is already marked as adopted.", "Oops!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog((Component) null,selectedPet.getName() + " is already marked as adopted.", "Oops!", JOptionPane.ERROR_MESSAGE);
 					}
 			}
 			//JOptionPane.showMessageDialog((Component) null,"To adopt a pet, select the pet you want to adopt from the list and click the adopt button.", "Help", JOptionPane.INFORMATION_MESSAGE);
