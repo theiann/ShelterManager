@@ -1,7 +1,9 @@
 package model;
 
 import java.util.Comparator;
-
+/*
+ * Comparator for sorting pets by Age
+ */
 public class AgeComparator implements Comparator<Pet>{
 	@Override 
 	public int compare(Pet pet1, Pet pet2) {

@@ -18,9 +18,14 @@ public class Manager {
 
 private String PETS_FILE = "src/main/resources/pets.json";
 private String EXOTICANIMALS_FILE = "src/main/resources/exotic_animals.json";
-
+/*
+ * initilizing GSON with pretty printing 
+ */
 private Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
 
+/*
+ * Loads all the regular pets from JSON file. and returns them as a n arraylist 
+ */
 public List<Pet> loadPets() throws IOException{
 	List<Pet> allPets = new ArrayList<>(); 
 	try(Reader reader = new FileReader(PETS_FILE)){
@@ -47,12 +52,18 @@ public List<Pet> loadPets() throws IOException{
 	return allPets; 
 }
 
+/*
+ * loads all exotic animals from the JSON file
+ */
 public List<ExoticAnimal> loadExoticAnimals() throws IOException {
     try (Reader reader = new FileReader(EXOTICANIMALS_FILE)) {
         return gson.fromJson(reader, new TypeToken<List<ExoticAnimal>>(){}.getType());
     }
 }
 
+/*
+ * Converts the exotic animal to adapted pets and returns them as an arrayList 
+ */
 public List<Pet> adaptExoticAnimals(List<ExoticAnimal> exoticAnimals){
 	List<Pet> adaptedPets = new ArrayList<>();
 	for(ExoticAnimal exotic : exoticAnimals) {

@@ -49,8 +49,6 @@ private UserView view;
 				JOptionPane.showMessageDialog((Component) null,petInfo, "Pet Info", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
-			
-			
 		}
 		
 	}
